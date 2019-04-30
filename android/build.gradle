@@ -9,6 +9,9 @@ buildscript {
 }
 
 apply plugin: 'android-library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.BenMcLean'
 
 android {
     compileSdkVersion 23
