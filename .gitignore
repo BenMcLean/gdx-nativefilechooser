@@ -99,9 +99,12 @@ proguard/
 captures/
 
 # Intellij
+.idea/
+*.ipr
+*.iws
 *.iml
-.idea/workspace.xml
-.idea/libraries
+out/
+
 
 # Keystore files
 *.jks
