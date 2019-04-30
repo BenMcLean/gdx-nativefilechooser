@@ -23,9 +23,9 @@
  */
 package net.spookygames.gdx.nativefilechooser;
 
-import java.io.IOException;
-
 import com.badlogic.gdx.files.FileHandle;
+
+import java.io.IOException;
 
 /**
  * The {@code NativeFileChooser} interface. Put this one into your core project,

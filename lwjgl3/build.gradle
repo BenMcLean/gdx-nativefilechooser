@@ -1,12 +1,12 @@
 apply plugin: 'application'
 
-mainClassName = 'net.spookygames.gdx.desktop.DesktopLauncher'
-eclipse.project.name = appName + '-desktop'
+mainClassName = 'net.spookygames.gdx.lwjgl3.Lwjgl3Launcher'
+eclipse.project.name = appName + '-lwjgl3'
 sourceCompatibility = 1.7
 
 dependencies {
   api project(':core')
-  api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
   api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
 
@@ -17,8 +17,4 @@ jar {
   manifest {
     attributes 'Main-Class': project.mainClassName
   }
-}
-
-run {
-  ignoreExitValue = true
 }

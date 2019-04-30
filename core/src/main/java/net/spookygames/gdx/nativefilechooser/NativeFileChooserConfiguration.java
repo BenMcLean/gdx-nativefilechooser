@@ -23,9 +23,9 @@
  */
 package net.spookygames.gdx.nativefilechooser;
 
-import java.io.FilenameFilter;
-
 import com.badlogic.gdx.files.FileHandle;
+
+import java.io.FilenameFilter;
 
 /**
  * The configuration class for a call to

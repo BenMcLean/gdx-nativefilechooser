@@ -23,28 +23,23 @@
  */
 package net.spookygames.gdx.nativefilechooser.android;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.MalformedURLException;
-import java.util.Locale;
-
-import com.badlogic.gdx.backends.android.AndroidApplication;
-import com.badlogic.gdx.backends.android.AndroidEventListener;
-import com.badlogic.gdx.files.FileHandle;
-
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import com.badlogic.gdx.backends.android.AndroidApplication;
+import com.badlogic.gdx.backends.android.AndroidEventListener;
+import com.badlogic.gdx.files.FileHandle;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserCallback;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserUtils;
+
+import java.io.*;
+import java.net.MalformedURLException;
+import java.util.Locale;
 
 /**
  * Implementation of a {@link NativeFileChooser} for the Android backend of a
