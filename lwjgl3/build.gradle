@@ -1,7 +1,6 @@
-apply plugin: 'application'
+apply plugin: 'maven'
+group = 'net.spookygames.gdx.nativefilechooser'
 
-mainClassName = 'net.spookygames.gdx.lwjgl3.Lwjgl3Launcher'
-eclipse.project.name = appName + '-lwjgl3'
 sourceCompatibility = 1.7
 
 dependencies {
@@ -10,11 +9,17 @@ dependencies {
   api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
 
-jar {
-  archiveFileName = "${appName}-${version}.jar"
-  from files(sourceSets.main.output.classesDirs)
-  from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } } 
-  manifest {
-    attributes 'Main-Class': project.mainClassName
-  }
+task sourcesJar(type: Jar, dependsOn: classes) {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+
+artifacts {
+  archives sourcesJar
+  archives javadocJar
 }

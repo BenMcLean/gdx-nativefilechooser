@@ -13,11 +13,6 @@ buildscript {
   }
 }
 
-allprojects {
-  apply plugin: 'eclipse'
-  apply plugin: 'idea'
-}
-
 configure(subprojects - project(':android')) {
   apply plugin: 'java-library'
   sourceCompatibility = 1.7
@@ -36,11 +31,4 @@ subprojects {
     maven { url 'https://jitpack.io' }
     jcenter()
   }
-}
-
-// Clearing Eclipse project data in root folder:
-tasks.eclipse.doLast {
-  delete '.project'
-  delete '.classpath'
-  delete '.settings/'
 }
