@@ -19,7 +19,12 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
   from javadoc.destinationDir
 }
 
+task classesJar(type: Jar, dependsOn: classes) {
+  from "$buildDir/classes/java/main"
+}
+
 artifacts {
   archives sourcesJar
   archives javadocJar
+  archives classesJar
 }

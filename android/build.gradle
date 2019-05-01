@@ -95,7 +95,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 task classesJar(type: Jar) {
-  from "$buildDir/intermediates/javac/compileReleaseJavaWithJavac/classes/release"
+  from "$buildDir/intermediates/javac/release/compileReleaseJavaWithJavac/classes"
 }
 
 artifacts {
