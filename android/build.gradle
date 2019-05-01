@@ -9,7 +9,7 @@ repositories {
 }
 
 group = 'net.spookygames.gdx.nativefilechooser'
-version = '1.0'
+version = '0.0.1'
 
 android {
   compileSdkVersion 28
@@ -37,9 +37,9 @@ configurations { natives }
 
 dependencies {
   api project(':core')
-  api fileTree(dir: 'libs', include: ['*.jar'])
+//  api fileTree(dir: 'libs', include: ['*.jar'])
   
-  api "com.android.support:design:28.0.0"
+//  api "com.android.support:design:28.0.0"
   api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
 
   natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
