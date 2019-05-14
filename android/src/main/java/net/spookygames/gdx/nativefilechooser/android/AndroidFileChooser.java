@@ -28,6 +28,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidEventListener;
@@ -93,8 +94,21 @@ public class AndroidFileChooser implements NativeFileChooser {
 		NativeFileChooserUtils.checkNotNull(callback, "callback");
 
 		// Create target Intent for new Activity
-		Intent intent = new Intent();
-		intent.setAction(Intent.ACTION_GET_CONTENT);
+		Intent intent;
+		// The following code is from https://stackoverflow.com/a/23692781
+		// designed to deal with the Permission Denied exception on some Android versions.
+		// Will probably also require adding to the manifest: <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+		if (Build.VERSION.SDK_INT < 19) {
+			intent = new Intent();
+			intent.setAction(Intent.ACTION_GET_CONTENT);
+			intent.setType("*/*");
+			app.startActivityForResult(Intent.createChooser(intent, "Select file "),88);
+		} else {
+			intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+			intent.addCategory(Intent.CATEGORY_OPENABLE);
+			intent.setType("*/*");
+			app.startActivityForResult(Intent.createChooser(intent, "Select file "),88);
+		}
 
 		// This one will ensure we have access to the
 		// MediaStore.MediaColumns.DISPLAY_NAME property

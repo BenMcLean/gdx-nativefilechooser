@@ -1,5 +1,6 @@
-<manifest package="net.spookygames.gdx.nativefilechooser">
+<manifest package="net.spookygames.gdx.nativefilechooser" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
